@@ -3,36 +3,32 @@ var target = -2
 var target2 = 100
 
 
-function twoSum(input,target){
-
-
-var map = {};
-var res = [];
-for(var i =0;i< input.length;i++){
-
-    map[input[i]] = i;
-
-}
-
-for(var i =0;i< input.length;i++){
-
-    if(target - input[i] in map){
-    res.push(i);
-    res.push(map[target - input[i]]); 
-    console.log(i,input[i],map[input[i]]);    
-    return res;
+var twoSum = function(nums, target) {
     
+    var map = {};
+    
+    for(var i = 0;i < nums.length;i++){
+        
+        map[nums[i]] = i;
+        
+        
     }
     
+    for(var i = 0;i < nums.length;i++){
+        
+       var temp = target - nums[i];
+        
+        if(temp in map){
             
-
-}
-   res.push(-1);
-   res.push(-1);
-   return res;  
-
-}
-
+            if(i != map[temp])
+            return [i, map[temp]];
+        }
+        
+        
+    }
+    
+    return [-1,-1];
+};
 
 function threeSum(input,target){
 //a + b + c = d
